@@ -1,0 +1,61 @@
+#%RAML 0.8
+title: Web Of Things API
+baseUri: http://server/api/{version}
+version: 1.0
+
+/thing:
+  post:
+    description: Create a new Thing
+    queryParameters:
+      
+    body:
+      
+      
+  get:
+    description: Retrieve all wot Things on the server
+    queryParameters:
+      properties:
+        required: false
+
+  /{id}:
+    uriParameters:
+      id:
+        description: The id of the Thing
+        displayName: id
+        example: dah32r9dsa
+        type: string
+        required: true
+    get:
+      description: Retrieve information regarding Thing with specific id
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                { "thing": {
+                    "@properties": {
+                        "property1": {
+                            "type": "type of the property",
+                            "writeable": true
+                              }
+                        }
+                    }
+                  }
+              example: |
+                { "switch12": {
+                    "@properties": {
+                        "on": {
+                            "type": "boolean",
+                            "writeable": true
+                              }
+                        }
+                    }
+                  }
+            application/xml:
+      headers:
+    delete:
+      description: Delete Thing with specific id
+    put:
+      description: Update information regarding Thing with specific id
+      
+      
